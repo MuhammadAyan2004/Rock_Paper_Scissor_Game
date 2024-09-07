@@ -60,3 +60,19 @@ h1{
     color: white;  
     cursor: pointer;
 }
+.reset{
+    display: flex;
+    justify-content: center;
+    padding-top:5vh;
+    margin-left: -15px;
+}
+.reset p{
+    font-size: 30px;
+    width: 30vh;
+    background-color: rgb(0, 7, 46);
+    color:white;
+    text-align: center;
+    padding: 10px;
+    border-radius: 20px;
+    cursor: pointer;
+}

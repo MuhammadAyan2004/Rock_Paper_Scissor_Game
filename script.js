@@ -4,6 +4,17 @@ const choices = document.querySelectorAll(".choice");
 const msg = document.querySelector("#msg");
 const userScoreBoard=document.querySelector("#userScore");
 const compScoreBoard=document.querySelector("#compScore");
+const resetBtn = document.querySelector(".reset");
+
+const reset=()=>{
+    userScore = 0;
+    compScore = 0;
+    userScoreBoard.innerText=userScore;
+    compScoreBoard.innerText=compScore;
+
+}
+
+reset();
 
 const drawGame=()=>{
     msg.innerText = "game was draw.Play again";
@@ -18,6 +29,7 @@ const showWinner=(userWin,userChoice,compChoice)=>{
         msg.style.width="60vh";
         msg.innerText = `you win! your ${userChoice} beat ${compChoice}`;
         msg.style.backgroundColor ="green";
+        
     }else{
         compScore++;
         compScoreBoard.innerText = compScore;
@@ -25,6 +37,7 @@ const showWinner=(userWin,userChoice,compChoice)=>{
         msg.innerText = `you lost. ${compChoice} beat your ${userChoice}`;
         msg.style.backgroundColor ="red";
     }
+    
 };
 
 const genCompUser=()=>{
@@ -50,6 +63,7 @@ const playGame =(userChoice)=>{
             userWin = compChoice==="rock"? false: true;
         }
         showWinner(userWin,compChoice,userChoice);
+        
     }
 
 };
@@ -58,5 +72,13 @@ choices.forEach((choice)=>{
     choice.addEventListener("click",()=>{
     const userChoice = choice.getAttribute("id")
     playGame(userChoice);
+    
     });
+
 });
+
+resetBtn.addEventListener("click",()=>{
+    msg.innerText= "game reset. start playing";
+    msg.style.backgroundColor ="";
+    reset();
+})
